@@ -12,7 +12,7 @@ public class CaixaEletronico {
     }
 
     public String logar(){
-        return "";
+        return "Usuário Autenticado";
     }
 
 }
