@@ -14,4 +14,8 @@ public class MockHardware implements Hardware {
         System.out.println("Envelope recebido");
     }
 
+    public void verificaChamadas(){
+
+    }
+
 }
