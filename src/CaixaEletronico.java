@@ -33,15 +33,13 @@ public class CaixaEletronico {
         return "Depósito recebido com sucesso";
     }
 
-    public String sacar(double valor) {
+    public String sacar(double valor) throws ErroDeHardware{
         try {
             cc.sacar(valor);
             hw.entregarDinheiro(valor);
             sr.persistirConta(cc);
         } catch (SaldoInsuficienteException e) {
             return "Saldo insuficiente";
-        } catch (ErroDeHardware erroDeHardware) {
-            erroDeHardware.printStackTrace();
         }
         return "Retire seu dinheiro";
     }

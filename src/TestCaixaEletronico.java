@@ -98,4 +98,20 @@ public class TestCaixaEletronico {
         assertEquals("Saldo insuficiente", cx.sacar(5000.00));
     }
 
+    @Test
+    public void testEntregaDinheiroFalha() throws IOException {
+        MockHardware hw = new MockHardware();
+        MockServico sr = new MockServico();
+        cx.setHardware(hw);
+        cx.setServicoRemoto(sr);
+        cx.logar();
+        try {
+            cx.sacar(1000.00);
+            fail("Erro de Hardware não levanado");
+        } catch (ErroDeHardware e) {
+            System.out.println("Erro de hardware leventado com sucesso!");
+        }
+    }
+
+
 }
