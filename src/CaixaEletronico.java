@@ -37,6 +37,7 @@ public class CaixaEletronico {
         try {
             cc.sacar(valor);
             hw.entregarDinheiro(valor);
+            sr.persistirConta(cc);
         } catch (SaldoInsuficienteException e) {
             return "Saldo insuficiente";
         } catch (ErroDeHardware erroDeHardware) {
