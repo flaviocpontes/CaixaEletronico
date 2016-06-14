@@ -14,7 +14,7 @@ public class ContaCorrente {
         return saldo;
     }
 
-    public void deposita(double v) {
-
+    public void deposita(double valor) {
+        saldo += valor;
     }
 }
