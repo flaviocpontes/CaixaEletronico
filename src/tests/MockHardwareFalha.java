@@ -1,6 +1,11 @@
+package tests;
+
+import main.ErroDeHardware;
+import main.Hardware;
+
 import java.io.IOException;
 
-public class MockHardwareFalha implements Hardware{
+public class MockHardwareFalha implements Hardware {
 
     public String pegarNumeroDaContaCartao() throws IOException {
         return "";

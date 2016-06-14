@@ -1,3 +1,8 @@
+package tests;
+
+import main.ErroDeHardware;
+import main.Hardware;
+
 import java.io.IOException;
 
 public class MockHardwareFalhaLeitura implements Hardware {

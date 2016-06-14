@@ -1,3 +1,5 @@
+package main;
+
 public interface ServicoRemoto {
 
     ContaCorrente recuperarConta(String numero);

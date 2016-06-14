@@ -1,3 +1,7 @@
+package tests;
+
+import main.CaixaEletronico;
+import main.ErroDeHardware;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -70,7 +74,7 @@ public class TestCaixaEletronico {
         cx.logar();
         try {
             cx.depositar(1000.00);
-            fail("Não pegou o ErroDeHardware");
+            fail("Não pegou o main.ErroDeHardware");
         } catch (ErroDeHardware erroDeHardware) {
             assertEquals(cx.saldo(), "O saldo é R$2500,00");
             assertFalse(sr.verificaChamadaPersisteConta());
@@ -107,7 +111,7 @@ public class TestCaixaEletronico {
         cx.logar();
         try {
             cx.sacar(1000.00);
-            fail("Erro de Hardware não levanado");
+            fail("Erro de main.Hardware não levanado");
         } catch (ErroDeHardware e) {
             System.out.println("Erro de hardware leventado com sucesso!");
         }

@@ -1,3 +1,8 @@
+package tests;
+
+import main.ContaCorrente;
+import main.ServicoRemoto;
+
 public class MockServico implements ServicoRemoto {
 
     private String contaRecuperada;

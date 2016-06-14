@@ -1,4 +1,9 @@
+package tests;
+
 import static org.junit.Assert.*;
+
+import main.ContaCorrente;
+import main.SaldoInsuficienteException;
 import org.junit.Test;
 
 public class TestContaCorrente {
