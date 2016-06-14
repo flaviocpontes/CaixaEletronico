@@ -17,4 +17,8 @@ public class ContaCorrente {
     public void deposita(double valor) {
         saldo += valor;
     }
+
+    public void sacar(double valor) {
+
+    }
 }

@@ -16,4 +16,13 @@ public class TestContaCorrente {
         assertEquals(1500.00, cc.getSaldo(), 1);
     }
 
+    @Test
+    public void testSacar(){
+        ContaCorrente cc = new ContaCorrente();
+        cc.deposita(1500.00);
+        assertEquals(1500.00, cc.getSaldo(), 1);
+        cc.sacar(1000.00);
+        assertEquals(500.00, cc.getSaldo(), 1);
+    }
+
 }
