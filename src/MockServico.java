@@ -1,9 +1,11 @@
+import static org.junit.Assert.*;
+
 public class MockServico implements ServicoRemoto {
 
-    private boolean chamadaRecupera = false;
+    private String contaRecuperada;
 
     public ContaCorrente recuperarConta(String numero){
-        chamadaRecupera = true;
+        contaRecuperada = numero;
         return new ContaCorrente();
     }
 
@@ -11,7 +13,9 @@ public class MockServico implements ServicoRemoto {
         System.out.println("Conta atualizada");
     }
 
-    public void verificaChamadaRecuperaConta() {
+    public void verificaChamadaRecuperaConta(String numeroEsperado) {
+        assertEquals(numeroEsperado, contaRecuperada);
     }
+
 
 }

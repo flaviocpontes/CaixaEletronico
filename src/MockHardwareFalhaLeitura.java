@@ -2,15 +2,10 @@ import java.io.IOError;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-import static org.junit.Assert.*;
-
-public class MockHardware implements Hardware {
-
-    private boolean chamadaCartao = false;
+public class MockHardwareFalhaLeitura implements Hardware{
 
     public String pegarNumeroDaContaCartao() throws IOException {
-        chamadaCartao = true;
-        return "012345";
+        throw new IOException("Falha na leitura do cartão");
     }
 
     public void entregarDinheiro(double valor)  throws ErroDeHardware {
@@ -19,10 +14,6 @@ public class MockHardware implements Hardware {
 
     public void lerEnvelope()throws ErroDeHardware, TimeoutException {
         System.out.println("Envelope recebido");
-    }
-
-    public void verificaChamadaCartao(){
-        assertEquals(true, chamadaCartao);
     }
 
 }

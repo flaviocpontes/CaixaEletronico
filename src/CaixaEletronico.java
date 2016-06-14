@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class CaixaEletronico {
 
     private Hardware hw;
@@ -12,7 +14,7 @@ public class CaixaEletronico {
         this.sr = sr;
     }
 
-    public String logar(){
+    public String logar() throws IOException{
         String numeroConta = hw.pegarNumeroDaContaCartao();
         this.cc = sr.recuperarConta(numeroConta);
         return "Usuário Autenticado";
