@@ -63,7 +63,7 @@ public class TestCaixaEletronico {
 
     @Test
     public void testDepositoFalhando() throws IOException, ErroDeHardware {
-        MockHardwareErroLerEnvelope hw = new MockHardwareErroLerEnvelope();
+        MockHardwareFalha hw = new MockHardwareFalha();
         MockServico sr = new MockServico();
         cx.setHardware(hw);
         cx.setServicoRemoto(sr);
@@ -100,7 +100,7 @@ public class TestCaixaEletronico {
 
     @Test
     public void testEntregaDinheiroFalha() throws IOException {
-        MockHardware hw = new MockHardware();
+        MockHardwareFalha hw = new MockHardwareFalha();
         MockServico sr = new MockServico();
         cx.setHardware(hw);
         cx.setServicoRemoto(sr);
