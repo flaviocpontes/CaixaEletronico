@@ -49,7 +49,7 @@ public class TestCaixaEletronico {
     }
 
     @Test
-    public void testeDeposito() throws IOException, ErroDeHardware, TimeoutException {
+    public void testDeposito() throws IOException, ErroDeHardware, TimeoutException {
         MockHardware hw = new MockHardware();
         MockServico sr = new MockServico();
         cx.setHardware(hw);
@@ -57,6 +57,7 @@ public class TestCaixaEletronico {
         cx.logar();
         cx.depositar(1000.00);
         assertEquals(cx.saldo(), "O saldo é R$3500,00");
+        sr.verificaChamadaPersisteConta();
     }
 
 }

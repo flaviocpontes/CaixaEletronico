@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 public class CaixaEletronico {
 
@@ -25,7 +26,9 @@ public class CaixaEletronico {
         return String.format("O saldo é R$%.2f", saldo);
     }
 
-    public void depositar(double valor) {
-
+    public void depositar(double valor) throws ErroDeHardware, TimeoutException {
+        hw.lerEnvelope();
+        cc.deposita(valor);
+        sr.persistirConta(cc);
     }
 }
