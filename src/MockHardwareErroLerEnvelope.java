@@ -10,7 +10,7 @@ public class MockHardwareErroLerEnvelope implements Hardware{
     public void entregarDinheiro(double valor)  throws ErroDeHardware {
     }
 
-    public void lerEnvelope()throws ErroDeHardware, TimeoutException {
+    public void lerEnvelope()throws ErroDeHardware {
         throw new ErroDeHardware("Não foi possíver ler o Envelope!");
     }
 }

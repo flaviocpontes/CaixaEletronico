@@ -11,7 +11,7 @@ public class MockHardwareFalhaLeitura implements Hardware{
     public void entregarDinheiro(double valor)  throws ErroDeHardware {
     }
 
-    public void lerEnvelope()throws ErroDeHardware, TimeoutException {
+    public void lerEnvelope()throws ErroDeHardware {
     }
 
 }

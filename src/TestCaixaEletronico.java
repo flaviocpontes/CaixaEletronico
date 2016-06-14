@@ -22,8 +22,8 @@ public class TestCaixaEletronico {
         MockServico sr = new MockServico();
         cx.setServicoRemoto(sr);
         assertEquals("Usuário Autenticado", cx.logar());
-        hw.verificaChamadaCartao();
-        sr.verificaChamadaRecuperaConta("012345");
+        assertTrue(hw.verificaChamadaCartao());
+        assertTrue(sr.verificaChamadaRecuperaConta("012345"));
     }
 
     @Test
@@ -58,10 +58,11 @@ public class TestCaixaEletronico {
         cx.depositar(1000.00);
         assertEquals(cx.saldo(), "O saldo é R$3500,00");
         assertTrue(sr.verificaChamadaPersisteConta());
+        assertTrue(hw.verificaChamadaEnvelope());
     }
 
     @Test
-    public void testDepositoFalhando() throws IOException, ErroDeHardware, TimeoutException {
+    public void testDepositoFalhando() throws IOException, ErroDeHardware {
         MockHardwareErroLerEnvelope hw = new MockHardwareErroLerEnvelope();
         MockServico sr = new MockServico();
         cx.setHardware(hw);
@@ -74,6 +75,11 @@ public class TestCaixaEletronico {
             assertEquals(cx.saldo(), "O saldo é R$2500,00");
             assertFalse(sr.verificaChamadaPersisteConta());
         }
+    }
+
+    @Test
+    public void testEntregaDinheiro() throws ErroDeHardware {
+        MockHardware hw = new MockHardware();
     }
 
 }

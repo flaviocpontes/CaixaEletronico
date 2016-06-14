@@ -7,6 +7,8 @@ import static org.junit.Assert.*;
 public class MockHardware implements Hardware {
 
     private boolean chamadaCartao = false;
+    private boolean chamadaDinheiro = false;
+    private boolean chamadaEnvelope = false;
 
     public String pegarNumeroDaContaCartao() throws IOException {
         chamadaCartao = true;
@@ -14,15 +16,22 @@ public class MockHardware implements Hardware {
     }
 
     public void entregarDinheiro(double valor)  throws ErroDeHardware {
-        System.out.println("Dinheiro entregue");
+        chamadaDinheiro = true;
     }
 
-    public void lerEnvelope()throws ErroDeHardware, TimeoutException {
-        System.out.println("Envelope recebido");
+    public void lerEnvelope()throws ErroDeHardware {
+        chamadaEnvelope = true;
     }
 
-    public void verificaChamadaCartao(){
-        assertEquals(true, chamadaCartao);
+    public boolean verificaChamadaCartao(){
+        return chamadaCartao;
     }
 
+    public boolean verificaChamadaDinheiro(){
+        return chamadaDinheiro;
+    }
+
+    public boolean verificaChamadaEnvelope() {
+        return chamadaEnvelope;
+    }
 }

@@ -15,8 +15,8 @@ public class MockServico implements ServicoRemoto {
         System.out.println("Conta atualizada");
     }
 
-    public void verificaChamadaRecuperaConta(String numeroEsperado) {
-        assertEquals(numeroEsperado, contaRecuperada);
+    public boolean verificaChamadaRecuperaConta(String numeroEsperado) {
+        return (numeroEsperado.equals(contaRecuperada));
     }
 
     public boolean verificaChamadaPersisteConta() {

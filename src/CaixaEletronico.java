@@ -26,7 +26,7 @@ public class CaixaEletronico {
         return String.format("O saldo é R$%.2f", saldo);
     }
 
-    public void depositar(double valor) throws ErroDeHardware, TimeoutException {
+    public void depositar(double valor) throws ErroDeHardware {
         hw.lerEnvelope();
         cc.deposita(valor);
         sr.persistirConta(cc);
