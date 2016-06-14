@@ -24,4 +24,8 @@ public class CaixaEletronico {
         double saldo = cc.getSaldo();
         return String.format("O saldo é R$%.2f", saldo);
     }
+
+    public void depositar(double valor) {
+
+    }
 }

@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.Assert.*;
 
@@ -46,4 +47,16 @@ public class TestCaixaEletronico {
         cx.logar();
         assertEquals(cx.saldo(), "O saldo é R$2500,00");
     }
+
+    @Test
+    public void testeDeposito() throws IOException, ErroDeHardware, TimeoutException {
+        MockHardware hw = new MockHardware();
+        MockServico sr = new MockServico();
+        cx.setHardware(hw);
+        cx.setServicoRemoto(sr);
+        cx.logar();
+        cx.depositar(1000.00);
+        assertEquals(cx.saldo(), "O saldo é R$3500,00");
+    }
+
 }
