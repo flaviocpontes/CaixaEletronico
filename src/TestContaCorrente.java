@@ -21,8 +21,27 @@ public class TestContaCorrente {
         ContaCorrente cc = new ContaCorrente();
         cc.deposita(1500.00);
         assertEquals(1500.00, cc.getSaldo(), 1);
-        cc.sacar(1000.00);
+        try {
+            cc.sacar(1000.00);
+        } catch (SaldoInsuficienteException e){
+            System.out.println("Não devia ter chegado aqui!");
+        }
         assertEquals(500.00, cc.getSaldo(), 1);
     }
+
+    @Test
+    public void testSacarAlemDoSaldo(){
+        ContaCorrente cc = new ContaCorrente();
+        cc.deposita(1500.00);
+        assertEquals(1500.00, cc.getSaldo(), 1);
+        try {
+            cc.sacar(2000.00);
+            fail("Não pegou o saldo insuficiente!");
+        } catch (SaldoInsuficienteException e){
+
+        }
+    }
+
+
 
 }
