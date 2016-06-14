@@ -19,6 +19,7 @@ public class ContaCorrente {
     }
 
     public void sacar(double valor) throws SaldoInsuficienteException{
+        if (valor > saldo) throw new SaldoInsuficienteException();
         saldo -= valor;
     }
 }
