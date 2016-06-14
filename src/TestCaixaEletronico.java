@@ -85,6 +85,17 @@ public class TestCaixaEletronico {
         cx.setServicoRemoto(sr);
         cx.logar();
         assertEquals("Retire seu dinheiro", cx.sacar(1000.00));
+        assertTrue(sr.verificaChamadaPersisteConta());
+    }
+
+    @Test
+    public void testEntregaDinheiroInsuficiente() throws ErroDeHardware, IOException {
+        MockHardware hw = new MockHardware();
+        MockServico sr = new MockServico();
+        cx.setHardware(hw);
+        cx.setServicoRemoto(sr);
+        cx.logar();
+        assertEquals("Retire seu dinheiro", cx.sacar(1000.00));
     }
 
 }
