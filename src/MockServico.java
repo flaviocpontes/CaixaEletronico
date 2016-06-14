@@ -6,7 +6,7 @@ public class MockServico implements ServicoRemoto {
 
     public ContaCorrente recuperarConta(String numero){
         contaRecuperada = numero;
-        return new ContaCorrente();
+        return new ContaCorrente(0);
     }
 
     public void persistirConta(ContaCorrente cc) {
