@@ -19,6 +19,6 @@ public class ContaCorrente {
     }
 
     public void sacar(double valor) {
-
+        saldo -= valor;
     }
 }
