@@ -19,7 +19,7 @@ public class MockServico implements ServicoRemoto {
         assertEquals(numeroEsperado, contaRecuperada);
     }
 
-    public void verificaChamadaPersisteConta() {
-        assertTrue(contaPersistida);
+    public boolean verificaChamadaPersisteConta() {
+        return contaPersistida;
     }
 }
