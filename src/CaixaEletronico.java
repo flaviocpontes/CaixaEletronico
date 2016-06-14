@@ -26,9 +26,22 @@ public class CaixaEletronico {
         return String.format("O saldo é R$%.2f", saldo);
     }
 
-    public void depositar(double valor) throws ErroDeHardware {
+    public String depositar(double valor) throws ErroDeHardware {
         hw.lerEnvelope();
         cc.deposita(valor);
         sr.persistirConta(cc);
+        return "Depósito recebido com sucesso";
+    }
+
+    public String sacar(double valor) {
+        try {
+            cc.sacar(valor);
+            hw.entregarDinheiro(valor);
+        } catch (SaldoInsuficienteException e) {
+            return "Saldo insuficiente";
+        } catch (ErroDeHardware erroDeHardware) {
+            erroDeHardware.printStackTrace();
+        }
+        return "Retire seu dinheiro";
     }
 }
