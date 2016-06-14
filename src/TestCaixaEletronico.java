@@ -95,7 +95,7 @@ public class TestCaixaEletronico {
         cx.setHardware(hw);
         cx.setServicoRemoto(sr);
         cx.logar();
-        assertEquals("Retire seu dinheiro", cx.sacar(1000.00));
+        assertEquals("Saldo insuficiente", cx.sacar(5000.00));
     }
 
 }
