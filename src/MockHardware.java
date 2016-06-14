@@ -1,8 +1,13 @@
 import java.io.IOError;
 
+import static org.junit.Assert.*;
+
 public class MockHardware implements Hardware {
 
+    private boolean chamadaCartao = false;
+
     public String pegarNumeroDaContaCartao() throws IOError {
+        chamadaCartao = true;
         return "012345";
     }
 
@@ -14,8 +19,8 @@ public class MockHardware implements Hardware {
         System.out.println("Envelope recebido");
     }
 
-    public void verificaChamadas(){
-
+    public void verificaChamadaCartao(){
+        assertEquals(true, chamadaCartao);
     }
 
 }

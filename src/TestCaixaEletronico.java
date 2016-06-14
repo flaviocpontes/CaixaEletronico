@@ -6,11 +6,13 @@ public class TestCaixaEletronico {
     @Test
     public void testLogar() {
         CaixaEletronico cx = new CaixaEletronico();
-        Hardware hw = new MockHardware();
+        MockHardware hw = new MockHardware();
         cx.setHardware(hw);
-        ServicoRemoto sr = new MockServico();
+        MockServico sr = new MockServico();
         cx.setServicoRemoto(sr);
         assertEquals("Usuário Autenticado", cx.logar());
+        hw.verificaChamadaCartao();
+        sr.verificaChamadaRecuperaConta();
     }
 
 
