@@ -36,4 +36,14 @@ public class TestCaixaEletronico {
             System.out.println("YAY!");
         }
     }
+
+    @Test
+    public void testSaldo() throws IOException{
+        MockHardware hw = new MockHardware();
+        MockServico sr = new MockServico();
+        cx.setHardware(hw);
+        cx.setServicoRemoto(sr);
+        cx.logar();
+        assertEquals(cx.saldo(), "O saldo é R$2500,00");
+    }
 }

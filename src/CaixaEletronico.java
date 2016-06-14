@@ -20,4 +20,8 @@ public class CaixaEletronico {
         return "Usuário Autenticado";
     }
 
+    public String saldo() {
+        double saldo = cc.getSaldo();
+        return String.format("O saldo é R$%.2f", saldo);
+    }
 }
