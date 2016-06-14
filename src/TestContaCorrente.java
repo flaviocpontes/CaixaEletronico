@@ -9,4 +9,11 @@ public class TestContaCorrente {
         assertEquals(2500.00, cc.getSaldo(), 1);
     }
 
+    @Test
+    public void testDeposita(){
+        ContaCorrente cc = new ContaCorrente();
+        cc.deposita(1500.00);
+        assertEquals(1500.00, cc.getSaldo(), 1);
+    }
+
 }
