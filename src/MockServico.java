@@ -1,5 +1,3 @@
-import static org.junit.Assert.*;
-
 public class MockServico implements ServicoRemoto {
 
     private String contaRecuperada;

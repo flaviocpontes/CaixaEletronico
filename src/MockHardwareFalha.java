@@ -1,6 +1,4 @@
-import java.io.IOError;
 import java.io.IOException;
-import java.util.concurrent.TimeoutException;
 
 public class MockHardwareFalha implements Hardware{
 

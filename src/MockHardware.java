@@ -1,8 +1,4 @@
-import java.io.IOError;
 import java.io.IOException;
-import java.util.concurrent.TimeoutException;
-
-import static org.junit.Assert.*;
 
 public class MockHardware implements Hardware {
 
